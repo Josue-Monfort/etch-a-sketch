@@ -20,6 +20,22 @@ body {
     background-color: var(--clr-bg-primary);
 }
 
+img {
+    width: 35px;
+    height: auto;
+    padding: 5px;
+}
+
+button {
+    background-color: var(--clr-bg-secondary);
+    margin: 0px 5px;
+    border: transparent;
+}
+
+button:hover {
+    background-color: rgb(138, 138, 138);
+}
+
 /* ----------------------------------------------- */
 /*!-------------- Tools Container ---------------- */
 /* ----------------------------------------------- */
