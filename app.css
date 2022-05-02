@@ -82,6 +82,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     height: 84vh;
+    width: 40vh;
 }
 
 .copyright {
@@ -103,6 +104,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: var(--clr-bg-secondary);
     height: 120px;
     border-radius: 5px;
@@ -112,6 +114,12 @@ button:hover {
 
 #canvasMessage {
     margin: 3px 0px;
+    font-size: 1.05em;
+}
+
+#alertMessage {
+    color: rgb(196, 196, 196);
+    margin: 10px 4px;
     font-size: 1.05em;
 }
 
@@ -139,6 +147,8 @@ input[type="text"] {
     border: 1px solid rgba(5, 5, 5, 0.7);
     border-radius: 5px;
     padding: 4px;
+    width: 90%;
+    font-size: 0.95em;
 }
 
 input[type="text"]:focus {
