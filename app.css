@@ -68,6 +68,7 @@ button:hover {
 /* ----------------------------------------------- */
 
 .canvasContainer {
+    display: grid;
     width: 85vh;
     height: 85vh;
     background-color: #ffffff;
