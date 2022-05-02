@@ -8,7 +8,32 @@
     <title>Etch a Sketch</title>
   </head>
   <body>
-      
+
+    <!-- Tools section container -->
+    <section class="toolsContainer">
+      <button class="brushBtn">BRUSH</button> <!--Brush image here-->
+      <button class="rainbowBtn">RAINBOW</button>
+      <button class="eraseBtn">ERASE</button>
+    </section>
+    
+    <!-- Canvas section container -->
+    <section class="canvasContainer">
+      <div id="canvasGrid"></div> <!-- The pixels will be generated here -->
+    </section>
+    
+    <!-- Color picker, select canvas size and clear button section-->
+    <section class="colorCanvasClearContainer">
+
+      <div class="colorPickerContainer">
+        <input type="color">
+      </div>
+
+      <div class="sizeClearContainer">
+        <input type="text" class="canvasSize">
+        <button class="clearCanvas">Clear</button>
+      </div>
+    </section>
+
     <script src="app.js"></script>
   </body>
 </html>

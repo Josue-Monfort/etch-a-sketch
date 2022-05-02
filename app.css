@@ -1,3 +1,8 @@
+:root {
+    --clr-bg-primary: rgb(58, 58, 58);
+    --clr-bg-secondary: rgb(116, 116, 116);
+}
+
 *,
 *::before,
 *::after {
@@ -7,5 +12,69 @@
 }
 
 body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
     height: 100vh;
+    background-color: var(--clr-bg-primary);
+}
+
+/* ----------------------------------------------- */
+/*!-------------- Tools Container ---------------- */
+/* ----------------------------------------------- */
+
+.toolsContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0px;
+    background-color: var(--clr-bg-secondary);
+}
+
+/* ----------------------------------------------- */
+/*!-------------- Canvas Container --------------- */
+/* ----------------------------------------------- */
+
+.canvasContainer {
+    width: 550px;
+    height: 550px;
+    background-color: #ffffff;
+}
+
+/* ----------------------------------------------- */
+/*! Color picker, canvas size and clear Container  */
+/* ----------------------------------------------- */
+
+.colorCanvasClearContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-bg-secondary);
+    height: 500px;
+}
+
+.colorPickerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 160px;
+}
+
+/* --- changes the color picker to be a circle ---- */
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 120px;
+    height: 120px;
+    background-color: var(--clr-bg-secondary);
+    border: none;
+    cursor: pointer;
+}
+  
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0; 
+}
+
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 6px 5px 7px;
 }
