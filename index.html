@@ -9,30 +9,36 @@
   </head>
   <body>
 
-    <!-- Tools section container -->
+    <!---------- Tools section container ---------->
     <section class="toolsContainer">
-      <button class="brushBtn"><img src="img/brush.png"></button> <!--Brush image here-->
-      <button class="rainbowBtn"><img src="img/rainbow.png"></button>
-      <button class="eraseBtn"><img src="img/eraser.png"></button>
-      <button class="clearCanvas"><img src="img/clear.png"></button>
-      <button class="gitHubBtn"><img src="img/gitHub.png"></button>
+      <button class="brushBtn"><img src="img/brush.png" title="Brush Tool"></button> <!--Brush image here-->
+      <button class="rainbowBtn"><img src="img/rainbow.png" title="Rainbow Brush Tool"></button>
+      <button class="eraseBtn"><img src="img/eraser.png" title="Erase Tool"></button>
+      <button class="clearCanvas"><img src="img/clear.png" title="Clear canvas"></button>
     </section>
 
-    <!-- Canvas section container -->
+    <!---------- Canvas section container ---------->
     <section class="canvasContainer">
       <div id="canvasGrid"></div> <!-- The pixels will be generated here -->
     </section>
     
-    <!-- Color picker and select canvas size-->
-    <section class="colorCanvasClearContainer">
+    <!---------- Color picker and select canvas size ---------->
+    <section class="colorSizeContainer">
 
       <div class="colorPickerContainer">
         <input type="color">
       </div>
 
-      <div class="sizeClearContainer">
-        <input type="text" class="canvasSize">
-
+      <div class="sizeContainer">
+        <p id="canvasMessage">Change the canvas size</p>
+        <input type="text" class="canvasSize" placeholder="Default 16x16">
+        <div class="buttonsContainer">
+          <button class="newSize">New canvas</button>
+          <button class="showGridBtn">Show grid</button>          
+        </div>
+      </div>
+      <div class="copyright">
+        <p>Made by <a href="https://github.com/Josue-Monfort/etch-a-sketch">Josue Monfort</a></p>
       </div>
     </section>
 

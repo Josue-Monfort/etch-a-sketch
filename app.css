@@ -1,6 +1,8 @@
 :root {
     --clr-bg-primary: rgb(58, 58, 58);
     --clr-bg-secondary: rgb(116, 116, 116);
+    --clr-btn-bg-primary: rgb(66, 66, 66);
+    --clr-btn-bg-secondary: rgb(77, 77, 77);
 }
 
 *,
@@ -24,6 +26,20 @@ img {
     width: 35px;
     height: auto;
     padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color:rgb(138, 138, 138);
+}
+
+a:visited {
+    text-decoration: none;
+    color:rgb(138, 138, 138);
+}
+
+a:hover {
+    color:rgb(170, 170, 170);
 }
 
 button {
@@ -52,22 +68,28 @@ button:hover {
 /* ----------------------------------------------- */
 
 .canvasContainer {
-    width: 550px;
-    height: 550px;
+    width: 85vh;
+    height: 85vh;
     background-color: #ffffff;
 }
 
 /* ----------------------------------------------- */
-/*! Color picker, canvas size and clear Container  */
+/*!---- Color picker and canvas size container --- */
 /* ----------------------------------------------- */
 
-.colorCanvasClearContainer {
+.colorSizeContainer {
     display: flex;
     flex-direction: column;
-    background-color: var(--clr-bg-secondary);
-    height: 500px;
+    height: 84vh;
 }
 
+.copyright {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+/* COLOR PICKER CONTAINER */
 .colorPickerContainer {
     display: flex;
     justify-content: center;
@@ -75,21 +97,69 @@ button:hover {
     height: 160px;
 }
 
+/* CHANGE SIZE CONTAINER */
+.sizeContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--clr-bg-secondary);
+    height: 120px;
+    border-radius: 5px;
+    padding: 12px;
+    box-shadow: rgba(0, 0, 0, 0.24) 6px 5px 7px;
+}
+
+#canvasMessage {
+    margin: 3px 0px;
+    font-size: 1.05em;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.buttonsContainer button {
+    background-color: var(--clr-btn-bg-primary);
+    padding: 6px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    color:rgb(138, 138, 138);
+}
+
+.buttonsContainer button:hover {
+    background-color: var(--clr-btn-bg-secondary);
+}
+
+input[type="text"] {
+    background-color: var(--clr-btn-bg-primary);
+    border: 1px solid rgba(5, 5, 5, 0.7);
+    border-radius: 5px;
+    padding: 4px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    background-color: var(--clr-btn-bg-secondary);
+}
+
 /* --- changes the color picker to be a circle ---- */
-input[type='color'] {
+input[type="color"] {
     -webkit-appearance: none;
     width: 120px;
     height: 120px;
-    background-color: var(--clr-bg-secondary);
+    background-color: var(--clr-bg-primary);
     border: none;
     cursor: pointer;
 }
   
-input[type='color']::-webkit-color-swatch-wrapper {
+input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0; 
 }
 
-input[type='color']::-webkit-color-swatch {
+input[type="color"]::-webkit-color-swatch {
     border: none;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.24) 6px 5px 7px;
