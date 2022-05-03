@@ -11,6 +11,11 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    user-select: none;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }
 
 body {
@@ -20,6 +25,10 @@ body {
     gap: 10px;
     height: 100vh;
     background-color: var(--clr-bg-primary);
+}
+
+h1 {
+    font-size: 2.5rem;
 }
 
 img {
@@ -166,7 +175,7 @@ input[type="text"]:focus {
 }
 
 .gridBorder {
-    border: 1px solid rgba(153, 153, 153, 0.87);
+    border: 1px dotted rgba(153, 153, 153, 0.87);
 }
 
 /* --- changes the color picker to be a circle ---- */

@@ -9,6 +9,11 @@ const eraserBtn = document.querySelector(".eraserBtn");
 const clearBtn = document.querySelector(".clearBtn");
 const btnAll = document.querySelectorAll(".toolsContainer > img"); // selects all tools buttons 
 
+// Without this you can only paint one div per click. This allows the user to click and drag to paint the canvas
+let mouseHolding = false
+document.body.onmousedown = () => (mouseHolding = true)
+document.body.onmouseup = () => (mouseHolding = false)
+
 function makeCanvas(pixelSize) {
     const canvasDisplay = document.querySelector(".canvasContainer");
     const pixel = document.querySelectorAll(".canvasContainer > div"); // Only selects the divs inside the canvas container
@@ -20,7 +25,8 @@ function makeCanvas(pixelSize) {
     // Populates the canvas container with divs
     for (let i = 0; i < canvasSize; i++) {
         let pixel = document.createElement("div");
-        pixel.addEventListener("mouseover", paintPixel); // changes the background color of the div when mouse hover
+        canvasDisplay.addEventListener('mouseover', paintPixel)
+        canvasDisplay.addEventListener('mousedown', paintPixel)
         btnGridShow.addEventListener("click", () => pixel.classList.toggle("gridBorder"));
         canvasDisplay.insertAdjacentElement("beforeend", pixel);
     };
@@ -48,10 +54,12 @@ window.addEventListener("keydown", (e) => {
 });
 
 function paintPixel(e) {
+    if (e.type === 'mouseover' && !mouseHolding) return // Allow the user to paint the canvas when holding the mouse down
     if (brushBtn.classList.contains("selected")) {
         let color = colorPickerInput.value; // Grabs the color from the color picker
         e.target.style.backgroundColor = `${color}`;
     } else if (rainbowBtn.classList.contains("selected")) {
+        // selects 3 random numbers that will be used on the rainbow brush
         let colorR = Math.floor(Math.random() * 256);
         let colorG = Math.floor(Math.random() * 256);
         let colorB = Math.floor(Math.random() * 256);
