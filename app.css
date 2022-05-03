@@ -156,6 +156,10 @@ input[type="text"]:focus {
     background-color: var(--clr-btn-bg-secondary);
 }
 
+.gridBorder {
+    border: 1px solid rgba(153, 153, 153, 0.87);
+}
+
 /* --- changes the color picker to be a circle ---- */
 input[type="color"] {
     -webkit-appearance: none;

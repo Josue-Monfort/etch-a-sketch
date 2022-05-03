@@ -2,6 +2,7 @@ const btnChangeSize = document.querySelector(".newSize"); // Button to change si
 const canvasSizeInput = document.querySelector(".canvasSizeInput"); // Gets the text input
 const messageAlert = document.querySelector("#alertMessage");
 const colorPickerInput = document.querySelector(".colorPickerInput"); // Color picker input
+const btnGridShow = document.querySelector(".showGridBtn"); 
 
 function makeCanvas(pixelSize) {
     const canvasDisplay = document.querySelector(".canvasContainer");
@@ -15,7 +16,8 @@ function makeCanvas(pixelSize) {
     for (let i = 0; i < canvasSize; i++) {
         let pixel = document.createElement("div");
         pixel.addEventListener("mouseover", paintPixel); // changes the background color of the div when mouse hover
-        pixel.style.border = "1px solid grey"; // TODO CHANGE LOCATION
+        // pixel.style.border = "1px solid grey"; // TODO CHANGE LOCATION
+        btnGridShow.addEventListener("click", () => pixel.classList.toggle("gridBorder"))
         canvasDisplay.insertAdjacentElement("beforeend", pixel);
     };
 };
@@ -34,7 +36,7 @@ function changeCanvasSize(size) {
     };
 };
 
-btnChangeSize.addEventListener("click", changeCanvasSize);
+btnChangeSize.addEventListener("mousedown", changeCanvasSize);
 
 // Cleans the alert from the invalid input
 window.addEventListener("keydown", (e) => {
