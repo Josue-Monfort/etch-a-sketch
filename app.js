@@ -4,7 +4,10 @@ const messageAlert = document.querySelector("#alertMessage");
 const colorPickerInput = document.querySelector(".colorPickerInput"); // Color picker input
 const btnGridShow = document.querySelector(".showGridBtn"); 
 const brushBtn = document.querySelector(".brushBtn"); // select the brush button
-const btnAll = document.querySelectorAll("img") // selects all tools buttons 
+const rainbowBtn = document.querySelector(".rainbowBtn");
+const eraserBtn = document.querySelector(".eraserBtn");
+const clearBtn = document.querySelector(".clearBtn");
+const btnAll = document.querySelectorAll(".toolsContainer > img"); // selects all tools buttons 
 
 function makeCanvas(pixelSize) {
     const canvasDisplay = document.querySelector(".canvasContainer");
@@ -18,8 +21,7 @@ function makeCanvas(pixelSize) {
     for (let i = 0; i < canvasSize; i++) {
         let pixel = document.createElement("div");
         pixel.addEventListener("mouseover", paintPixel); // changes the background color of the div when mouse hover
-        // pixel.style.border = "1px solid grey"; // TODO CHANGE LOCATION
-        btnGridShow.addEventListener("click", () => pixel.classList.toggle("gridBorder"))
+        btnGridShow.addEventListener("click", () => pixel.classList.toggle("gridBorder"));
         canvasDisplay.insertAdjacentElement("beforeend", pixel);
     };
 };
@@ -34,7 +36,7 @@ function changeCanvasSize(size) {
         return makeCanvas(size);
     } else {
         // Fires an alert if the user input is not a valid input
-        messageAlert.textContent = "Size must be a number between 2 and 64. Try again!"
+        messageAlert.textContent = "Size must be a number between 2 and 64. Try again!";
     };
 };
 
@@ -46,19 +48,34 @@ window.addEventListener("keydown", (e) => {
 });
 
 function paintPixel(e) {
-    let color = colorPickerInput.value; // Grabs the color from the color picker
-    e.target.style.backgroundColor = `${color}`;
+    if (brushBtn.classList.contains("selected")) {
+        let color = colorPickerInput.value; // Grabs the color from the color picker
+        e.target.style.backgroundColor = `${color}`;
+    } else if (rainbowBtn.classList.contains("selected")) {
+        let colorR = Math.floor(Math.random() * 256);
+        let colorG = Math.floor(Math.random() * 256);
+        let colorB = Math.floor(Math.random() * 256);
+        e.target.style.backgroundColor = `rgb(${colorR}, ${colorG}, ${colorB})`;
+    } else if (eraserBtn.classList.contains("selected")) {
+        e.target.style.backgroundColor = "white";
+    };
 };
 
+clearBtn.addEventListener("click", () => {
+    const canvasDisplay = document.querySelector(".canvasContainer");
+    const pixel = document.querySelectorAll(".canvasContainer > div");
+    pixel.forEach(pixels => pixels.style.backgroundColor = "white");
+});
+
 // Selects the brush button and adds the background color
-brushBtn.classList.add("selected")
+brushBtn.classList.add("selected");
 
 // This changes the background color of the tools buttons when selected
 // It first removes the class selected from all buttons and then adds it to the selected button
 btnAll.forEach((button) => {
     button.addEventListener("click", (e) => {
         // Removes the class selected from the brush button
-        brushBtn.classList.remove("selected")
+        brushBtn.classList.remove("selected");
         // Remove the class selected from all the buttons
         btnAll.forEach(button => button.classList.remove("selected"));
         e.target.classList.toggle("selected");
