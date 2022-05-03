@@ -3,6 +3,8 @@ const canvasSizeInput = document.querySelector(".canvasSizeInput"); // Gets the 
 const messageAlert = document.querySelector("#alertMessage");
 const colorPickerInput = document.querySelector(".colorPickerInput"); // Color picker input
 const btnGridShow = document.querySelector(".showGridBtn"); 
+const brushBtn = document.querySelector(".brushBtn"); // select the brush button
+const btnAll = document.querySelectorAll("img") // selects all tools buttons 
 
 function makeCanvas(pixelSize) {
     const canvasDisplay = document.querySelector(".canvasContainer");
@@ -47,3 +49,18 @@ function paintPixel(e) {
     let color = colorPickerInput.value; // Grabs the color from the color picker
     e.target.style.backgroundColor = `${color}`;
 };
+
+// Selects the brush button and adds the background color
+brushBtn.classList.add("selected")
+
+// This changes the background color of the tools buttons when selected
+// It first removes the class selected from all buttons and then adds it to the selected button
+btnAll.forEach((button) => {
+    button.addEventListener("click", (e) => {
+        // Removes the class selected from the brush button
+        brushBtn.classList.remove("selected")
+        // Remove the class selected from all the buttons
+        btnAll.forEach(button => button.classList.remove("selected"));
+        e.target.classList.toggle("selected");
+    });
+});

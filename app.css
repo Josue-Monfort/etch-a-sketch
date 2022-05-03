@@ -26,6 +26,11 @@ img {
     width: 35px;
     height: auto;
     padding: 5px;
+    cursor: pointer;
+}
+
+img:hover {
+    background-color: rgb(138, 138, 138);
 }
 
 a {
@@ -61,6 +66,10 @@ button:hover {
     flex-direction: column;
     padding: 5px 0px;
     background-color: var(--clr-bg-secondary);
+}
+
+.selected {
+    background-color: rgb(138, 138, 138);
 }
 
 /* ----------------------------------------------- */
