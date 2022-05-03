@@ -10,9 +10,9 @@ const clearBtn = document.querySelector(".clearBtn");
 const btnAll = document.querySelectorAll(".toolsContainer > img"); // selects all tools buttons 
 
 // Without this you can only paint one div per click. This allows the user to click and drag to paint the canvas
-let mouseHolding = false
-document.body.onmousedown = () => (mouseHolding = true)
-document.body.onmouseup = () => (mouseHolding = false)
+let mouseHolding = false;
+document.body.onmousedown = () => (mouseHolding = true);
+document.body.onmouseup = () => (mouseHolding = false);
 
 function makeCanvas(pixelSize) {
     const canvasDisplay = document.querySelector(".canvasContainer");
@@ -70,7 +70,6 @@ function paintPixel(e) {
 };
 
 clearBtn.addEventListener("click", () => {
-    const canvasDisplay = document.querySelector(".canvasContainer");
     const pixel = document.querySelectorAll(".canvasContainer > div");
     pixel.forEach(pixels => pixels.style.backgroundColor = "white");
 });
