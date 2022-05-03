@@ -1,6 +1,7 @@
 const btnChangeSize = document.querySelector(".newSize"); // Button to change size
 const canvasSizeInput = document.querySelector(".canvasSizeInput"); // Gets the text input
 const messageAlert = document.querySelector("#alertMessage");
+const colorPickerInput = document.querySelector(".colorPickerInput"); // Color picker input
 
 function makeCanvas(pixelSize) {
     const canvasDisplay = document.querySelector(".canvasContainer");
@@ -13,7 +14,7 @@ function makeCanvas(pixelSize) {
     // Populates the canvas container with divs
     for (let i = 0; i < canvasSize; i++) {
         let pixel = document.createElement("div");
-        pixel.addEventListener("mouseover", paintPixel) // changes the background color of the div when mouse hover
+        pixel.addEventListener("mouseover", paintPixel); // changes the background color of the div when mouse hover
         pixel.style.border = "1px solid grey"; // TODO CHANGE LOCATION
         canvasDisplay.insertAdjacentElement("beforeend", pixel);
     };
@@ -41,5 +42,6 @@ window.addEventListener("keydown", (e) => {
 });
 
 function paintPixel(e) {
-    e.target.style.backgroundColor = "red"
-}
+    let color = colorPickerInput.value; // Grabs the color from the color picker
+    e.target.style.backgroundColor = `${color}`;
+};
