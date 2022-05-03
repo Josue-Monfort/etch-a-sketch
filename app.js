@@ -13,23 +13,24 @@ function makeCanvas(pixelSize) {
     // Populates the canvas container with divs
     for (let i = 0; i < canvasSize; i++) {
         let pixel = document.createElement("div");
-        pixel.style.border = "1px solid grey";
+        pixel.addEventListener("mouseover", paintPixel) // changes the background color of the div when mouse hover
+        pixel.style.border = "1px solid grey"; // TODO CHANGE LOCATION
         canvasDisplay.insertAdjacentElement("beforeend", pixel);
     };
 };
 
-makeCanvas(16)
+makeCanvas(16);
 
 // Catch the canvas size input from the user and changes the canvas size using that input
 function changeCanvasSize(size) {
     size = canvasSizeInput.value;
     // Limits the user to input only numbers between 2 and 64
     if (size >= 2 && size <= 64) {
-        return makeCanvas(size)
+        return makeCanvas(size);
     } else {
         // Fires an alert if the user input is not a valid input
-        messageAlert.textContent = "Size must be a number between 2 and 64 Only. Try again!"
-    }
+        messageAlert.textContent = "Size must be a number between 2 and 64. Try again!"
+    };
 };
 
 btnChangeSize.addEventListener("click", changeCanvasSize);
@@ -37,4 +38,8 @@ btnChangeSize.addEventListener("click", changeCanvasSize);
 // Cleans the alert from the invalid input
 window.addEventListener("keydown", (e) => {
     if (e.key === "Backspace" || canvasSizeInput.value !== "") return messageAlert.textContent = "";
-})
+});
+
+function paintPixel(e) {
+    e.target.style.backgroundColor = "red"
+}
